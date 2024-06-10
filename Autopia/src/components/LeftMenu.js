@@ -7,13 +7,13 @@ export default function LeftMenu() {
     <div className="leftMenu">
       <ul>
         <li>
-          <Link to="/" className="active">
+          <Link to="/">
             <i className="fa fa-user-plus" aria-hidden="true"></i> Customer Details Enter
           </Link>
         </li>
         <li>
           <Link to="/search">
-            <i className="fa fa-file-text" aria-hidden="true"></i> Customer Details
+            <i className="fa fa-file-text" aria-hidden="true"></i> Customer Search
           </Link>
         </li>
         <li>
