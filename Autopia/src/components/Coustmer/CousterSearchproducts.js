@@ -22,7 +22,7 @@ export default function CousterSearchproducts({PPF,Ceramic,WaterWash,number}) {
             <li  className={tab === "WaterWash" ? "active" : ""} onClick={()=>setTab("WaterWash")}><a data-toggle="tab" href="#menu2">Water Wash</a></li>
           </ul>
 
-        <div class="tab-content">
+        <div class="tab-content mt-3">
             <div class="">
             {tab=="PPF" ? 
              <CustomerSearchProductData tab={tab} data={PPF} /> : 
@@ -32,13 +32,13 @@ export default function CousterSearchproducts({PPF,Ceramic,WaterWash,number}) {
             </div>
         </div>
 
-          {
-            number!= null && number.length >0  &&
+          {/* {
+            number!= null && number.length >0  && */}
         <div className="btn-row d-flex justify-content-end">
           {/* <button className="btn-cancel me-2" type="button">Cancel</button> */}
           <button className="btn-add" type="button" onClick={()=>setOpenPopUp(!openPopup)}>Add</button>
         </div>
-        }
+        {/* } */}
 
 
           {

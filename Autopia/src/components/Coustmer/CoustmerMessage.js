@@ -32,11 +32,11 @@ export default function CoustmerMessage() {
       coustomerExperyDetails(body).then((res)=>{
           if(res.status == 200){
             console.log(res.data);
-            if(res.data.PPF.length > 0){
-              // setPPF(res.data.PPF);
+            if(res?.data?.PPF.length > 0){
+              setPPF(res.data.PPF);
             }
             if(res.data.Ceramic.length > 0){
-              // setCeramic(res.data.Ceramic);
+             setCeramic(res.data.Ceramic);
             }
           }
 
@@ -113,108 +113,115 @@ const closePop = () =>{
     <>
     <LeftMenu/>
     <div className="rightBody p-4">
-      <input type="date" value={startDate} onChange={(e)=>setStartDate(e.target.value)}/>
-      <input type="date" value={endDate} onChange={(e)=>setEndDate(e.target.value)}/>
-      <button > Search</button>
-      <div className="message-table">
-        <table>
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Person</th>
-              <th>Car Name</th>
-              <th>Car Number</th>
-              <th>Mobile Number</th>
-              <th>Type of Service</th>
-              <th>Last Service Date</th>
-              <th>Remainder</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            {
-              PPF !=null && PPF.length > 0 ? PPF.map((value,index)=>(
-                <>
-                  <tr key={value.mobileNumber}>
-                    <td>{index+1}</td>
-                    <td>{value.name}</td>
-                    <td>{value.carName}</td>
-                    <td style={{maxWidth: "300px"}}>{value.carNumber}</td>
-                    <td>{value.mobileNumber}</td>
-                    <td>{value.typeofservice}</td>
-                    <td>{dateFormate(value.serviceDate)}</td>
-                    <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal" onClick={()=>openPop(value.mobileNumber,value.product,value.name)}>Send</button></td>
-                  </tr>
-                </>
-              ))
-              :
-              <>
-                <p>No data found</p>
-              </>
-            }
-            {/* <tr>
-              <td>1.</td>
-              <td>Lamborgini</td>
-              <td>Chandra</td>
-              <td style={{maxWidth: "300px"}}>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</td>
-              <td>06:30pm</td>
-              <td>01-30-2024</td>
-              <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal">Send</button></td>
-            </tr> */}
-          </tbody>
-        </table>
-      </div>
+      <div className="form-row">
+        <div className="form-in">
+          <div className="row">
+            <div className="col-md-4">
+              <input type="date" value={startDate} onChange={(e)=>setStartDate(e.target.value)}/>
+            </div>
+            <div className="col-md-4">
+              <input type="date" value={endDate} onChange={(e)=>setEndDate(e.target.value)}/>
+            </div>
+            <div className="col-md-4">
+              <button type="button" className="btn-add"> Search</button>
+            </div>
+          </div> 
+       
+          <div className="message-table mt-3">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Person</th>
+                  <th>Car Name</th>
+                  <th>Car Number</th>
+                  <th>Mobile Number</th>
+                  <th>Type of Service</th>
+                  <th>Last Service Date</th>
+                  <th>Remainder</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                {
+                  PPF !=null && PPF.length > 0 ? PPF.map((value,index)=>(
+                    <>
+                      <tr key={value.mobileNumber}>
+                        <td>{index+1}</td>
+                        <td>{value.name}</td>
+                        <td>{value.carName}</td>
+                        <td style={{maxWidth: "300px"}}>{value.carNumber}</td>
+                        <td>{value.mobileNumber}</td>
+                        <td>{value.typeofservice}</td>
+                        <td>{dateFormate(value.serviceDate)}</td>
+                        <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal" onClick={()=>openPop(value.mobileNumber,value.product,value.name)}>Send</button></td>
+                      </tr>
+                    </>
+                  ))
+                  :
+                  <>
+                    <tr>
+                      <td colspan="8" className="text-center p-3">No data found</td>
+                    </tr>
+                  </>
+                }
+              </tbody>
+            </table>
+          </div>
 
-      <div className="message-table">
-        <table>
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Person</th>
-              <th>Car Name</th>
-              <th>Car Number</th>
-              <th>Mobile Number</th>
-              <th>Type of Service</th>
-              <th>Last Service Date</th>
-              <th>Remainder</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            {
-              Ceramic !=null && Ceramic.length > 0 ?
-               Ceramic.map((value,index)=>(
-                <>
-                  <tr key={value.mobileNumber}>
-                    <td>{index+1}</td>
-                    <td>{value.name}</td>
-                    <td>{value.carName}</td>
-                    <td style={{maxWidth: "300px"}}>{value.carNumber}</td>
-                    <td>{value.mobileNumber}</td>
-                    <td>{value.typeofservice}</td>
-                    <td>{dateFormate(value.serviceDate)}</td>
-                    <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal" onClick={()=>openPop(value.mobileNumber,value.product,value.name)}>Send</button></td>
-                  </tr>
-                </>
-              )) 
-              : 
-              <>
-                <p>NO DATA FOUND</p>
-              </>
-            }
-            {/* <tr>
-              <td>1.</td>
-              <td>Lamborgini</td>
-              <td>Chandra</td>
-              <td style={{maxWidth: "300px"}}>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</td>
-              <td>06:30pm</td>
-              <td>01-30-2024</td>
-              <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal">Send</button></td>
-            </tr> */}
-          </tbody>
-        </table>
+          <div className="message-table mt-3">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Person</th>
+                  <th>Car Name</th>
+                  <th>Car Number</th>
+                  <th>Mobile Number</th>
+                  <th>Type of Service</th>
+                  <th>Last Service Date</th>
+                  <th>Remainder</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                {
+                  Ceramic !=null && Ceramic.length > 0 ?
+                  Ceramic.map((value,index)=>(
+                    <>
+                      <tr key={value.mobileNumber}>
+                        <td>{index+1}</td>
+                        <td>{value.name}</td>
+                        <td>{value.carName}</td>
+                        <td style={{maxWidth: "300px"}}>{value.carNumber}</td>
+                        <td>{value.mobileNumber}</td>
+                        <td>{value.typeofservice}</td>
+                        <td>{dateFormate(value.serviceDate)}</td>
+                        <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal" onClick={()=>openPop(value.mobileNumber,value.product,value.name)}>Send</button></td>
+                      </tr>
+                    </>
+                  )) 
+                  : 
+                  <>
+                   <tr>
+                      <td colspan="8" className="text-center p-3">No data found</td>
+                    </tr>
+                  </>
+                }
+                {/* <tr>
+                  <td>1.</td>
+                  <td>Lamborgini</td>
+                  <td>Chandra</td>
+                  <td style={{maxWidth: "300px"}}>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</td>
+                  <td>06:30pm</td>
+                  <td>01-30-2024</td>
+                  <td><button type="button" className="btn-add" data-toggle="modal" data-target="#myModal">Send</button></td>
+                </tr> */}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-
      {/* Modal  */}
      {
       ppfPopUp && mobileNumber != null && name != null && <MessagePopUp mobileNumber={mobileNumber} tab={tab} name={name} closePop={closePop}/>

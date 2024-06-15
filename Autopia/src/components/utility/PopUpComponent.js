@@ -105,9 +105,9 @@ export default function PopUpComponent({closepopup,mobileNumber}) {
   return (
     <div className="popup-overlay">
     <div className="popup-content">
-      <h2>Popup Title</h2>
+      <h4 className='mb-4'>Popup Title</h4>
      
-      <div className="form-row mb-4">
+      <div className="form-row mb-3 p-0">
             <h5 className="title">Product</h5>
             {flags.product && <p style={{color : 'red'}} >Select one feild </p>}
 
@@ -122,7 +122,7 @@ export default function PopUpComponent({closepopup,mobileNumber}) {
                 </div>
               </div>
               <div className="col-md-3">
-                <div className="form-in mb-3">
+                <div className="form-in">
                   <label className="d-flex align-items-center"><input type="radio" name="product" value="Ceramic" onChange={(e)=>handelProduct(e.target.value, e.target.checked )}/> Ceramic</label>
                 </div>
               </div>
@@ -135,29 +135,32 @@ export default function PopUpComponent({closepopup,mobileNumber}) {
           
           </div>
 
-          <div className="form-row mb-4">
+          <div className="form-row mb-3 p-0">
             <h5 className="title">Warranty</h5>
             <div className="row mt-3">
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="form-in">
-                  <label className="d-flex align-items-center">Brand <input type="text" onChange={(e)=>{setBrand(e.target.value)}}/></label>
+                  <label className="d-flex align-items-center">Brand</label>
+                  <input type="text" onChange={(e)=>{setBrand(e.target.value)}}/>
                 </div>
               </div>
-              <div className="col-md-3">
-                <div className="form-in mb-3">
-                  <label className="d-flex align-items-center">From <input type="date" onChange={(e)=>{setFromDate(e.target.value)}}/> </label>
+              <div className="col-md-4">
+                <div className="form-in">
+                  <label className="d-flex align-items-center">From</label>
+                  <input type="date" onChange={(e)=>{setFromDate(e.target.value)}}/>
                 </div>
               </div>
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="form-in">
-                <label className="d-flex align-items-center">TO <input type="date" onChange={(e)=>{setToDate(e.target.value)}}/> </label>
+                <label className="d-flex align-items-center">To</label>
+                <input type="date" onChange={(e)=>{setToDate(e.target.value)}}/>
                 </div>
               </div>
             </div>
           </div>
         
 
-          <div className="form-row mb-4">
+          <div className="form-row mb-3 p-0">
               <h5 className="title">Types of Services</h5>
               {flags.typeofservice && <p style={{color : 'red'}} >Select one feild </p>}
 
@@ -169,7 +172,7 @@ export default function PopUpComponent({closepopup,mobileNumber}) {
                   </div>
                 </div>
                 <div className="col-md-3">
-                  <div className="form-in mb-3">
+                  <div className="form-in">
                     <label className="d-flex align-items-center" ><input type="radio" name="service" value="maintance" onChange={(e)=> handelService(e.target.value, e.target.checked)}/> Maintance</label>
                   </div>
                 </div>

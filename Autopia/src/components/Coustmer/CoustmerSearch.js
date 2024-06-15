@@ -63,56 +63,58 @@ export default function CoustmerSearch() {
     <div className="form-row mb-4">
   
         <h5 className="title">Search</h5>
-        <div className="col-md-3">
-              <label>search</label>
-              <input type="text"  value ={search} onChange={(e)=>setSearch(e.target.value)}placeholder="Search Number.."/>
-              <button onClick={searchNumber}>search</button>
+        <div className="col-md-4">
+          <label>search</label>
+          <div className="d-flex align-items-center">
+            <input type="text"  value ={search} onChange={(e)=>setSearch(e.target.value)}placeholder="Search Number.."/>
+            <button onClick={searchNumber} className="btn-add ms-3">search</button>
+          </div>
         </div>
         
-        <div className="row">
+        <div className="row mt-3">
 
           <div className="col-md-6">
-            <div className="form-in mb-3">
-              <label>Name</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Name:</label>
                 {name && <><p>{name}</p></>}
               {/* <input type="text" placeholder="Enter Name.."/> */}
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-in mb-3">
-              <label>Email</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Email:</label>
               {email && <><p>{email}</p></>}
               {/* <input type="text" placeholder="Enter Email.."/> */}
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-in">
-              <label>Mobile Number</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Mobile Number:</label>
               {mobileNumber && <><p>{mobileNumber}</p></>}
               {/* <input type="text" placeholder="Enter Mobile Number.."/> */}
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-in">
-              <label>Car Name</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Car Name:</label>
               {carName && <><p>{carName}</p></>}
               {/* <input type="text" placeholder="Enter Car Model.."/> */}
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="form-in">
-              <label>Car Model</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Car Model:</label>
               {carModel && <><p>{carModel}</p></>}
               {/* <input type="text" placeholder="Enter Car Model.."/> */}
             </div>
           </div>
           <div className="col-md-6">
-            <div className="form-in">
-              <label>Car Number</label>
+            <div className="form-in d-flex">
+              <label className="me-2">Car Number:</label>
               {carNumber && <><p>{carNumber}</p></>}
               {/* <input type="text" placeholder="Enter Car Model.."/> */}
             </div>

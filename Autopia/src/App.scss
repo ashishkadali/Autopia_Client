@@ -28,8 +28,13 @@ body {
   color: $textColor;
   font-family: $poppinsFont;
 }
-h1, h2, h3, h4, h5, h6, label {
+label {
   font-size: $smallerFont;
+  font-weight: $fontBold;
+  color: $textColor;
+  font-family: $poppinsFont;
+}
+h1, h2, h3, h4, h5, h6 {
   font-weight: $fontBold;
   color: $textColor;
   font-family: $poppinsFont;
@@ -49,7 +54,7 @@ h1, h2, h3, h4, h5, h6, label {
   background: gray;
   border-radius: 30px;
 }
-input[type=text] {
+input[type=text], input[type=date] {
   border: 1px solid #e1dfdf;
   height: 40px;
   border-radius: 3px;
@@ -65,11 +70,43 @@ input[type=checkbox]{
   height: 20px;
   margin-right: 5px;
   margin-top: 0px;
-
+}
+input[type=radio]{
+  margin-right: 5px;
 }
 button{
   padding: 8px 15px;
   min-width: 100px;
+}
+table {
+  width: 100%;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  thead {
+    tr {
+      th {
+        background-color: $blueColor;
+        padding: 10px;
+        color: $textWhite;
+      }
+    }
+  }
+  tbody {
+    tr{
+      td {
+        padding: 10px 10px;
+       .btn-add{
+        padding: 5px 15px;
+        border-radius: 4px;
+        min-width: auto;
+       }
+      }
+      &:nth-child(even){
+        & td{
+          background-color: $grayColor;
+        }
+      }
+    }
+  }
 }
 
 // Header css starts
@@ -147,8 +184,18 @@ button{
       }
     }
     .form-in{
+      margin-bottom: 15px;
       & label{
         margin-bottom: 3px;
+      }
+      .message-table{
+          height: 100vh;
+          max-height: 32vh;
+          overflow-y: auto;
+          box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+          & table{
+            height: 100%;
+          }
       }
     }
   }
@@ -201,8 +248,6 @@ button{
       }
     }
     .tab-content{
-      border: 1px solid $darkClor;
-      border-top: 0px;
       .tab-pane{
         padding: 20px;
         & p {
@@ -214,38 +259,7 @@ button{
       }
     }
   }
-  .message-table{
-    table {
-      width: 100%;
-      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-      thead {
-        tr {
-          th {
-            background-color: #0d141e;
-            padding: 10px;
-            color: $textWhite;
-          }
-        }
-      }
-      tbody {
-        tr{
-          td {
-            padding: 5px 10px;
-           .btn-add{
-            padding: 5px 15px;
-            border-radius: 4px;
-            min-width: auto;
-           }
-          }
-          &:nth-child(even){
-            & td{
-              background-color: $textWhite;
-            }
-          }
-        }
-      }
-    }
-  }
+
 }
 //Right body css end
 
@@ -277,36 +291,13 @@ button{
 
 
 
-// tabel css for search
 
-.custom-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.custom-table th,
-.custom-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.custom-table th {
-  background-color: #f2f2f2;
-}
-
-.custom-table tbody {
-  height: 200px; /* Set your desired height */
-  overflow-y: auto;
-  display: block;
-}
-
-.custom-table thead,
-.custom-table tbody tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed; /* Force the table layout */
-}
+// .custom-table thead,
+// .custom-table tbody tr {
+//   display: table;
+//   width: 100%;
+//   table-layout: fixed; /* Force the table layout */
+// }
 
 .custom-table tbody::-webkit-scrollbar {
   width: 10px;
@@ -329,4 +320,33 @@ button{
 ///////////////////////////
 
 //pop up component css
+.popup-overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::before {
+    background-color: rgba(0, 0, 0, 0.7);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .popup-content{
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+    background-color: $textWhite;
+    padding: 20px;
+    border-radius: 10px;
+    .title{
+      font-size: $mediumFont;
+    }
+  }
+}
 

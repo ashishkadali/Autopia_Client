@@ -14,13 +14,15 @@ export const CustomerSearchProductData = memo(({ tab, data }) => {
     
   return (
     <>
-      <table className="custom-table">
+      <table className="custom-table mb-3">
         <thead>
-            <th>S.NO</th>
-            <th>Product</th>
-            <th>Brand</th>
-            <th>Service</th>
-            <th>Service Date</th>
+            <tr>
+                <th>S.No</th>
+                <th>Product</th>
+                <th>Brand</th>
+                <th>Service</th>
+                <th>Service Date</th>
+            </tr>
         </thead>
         <tbody>
             {
@@ -34,9 +36,9 @@ export const CustomerSearchProductData = memo(({ tab, data }) => {
                             <td>{dateFormate(value.serviceDate)}</td>
                         </tr>
                     </>
-                )) : <div className="no-data">
-                    No Data
-                </div>
+                )) : <tr className="no-data">
+                    <td colSpan={6} className="p-5">No Data</td>
+                </tr>
             }
         </tbody>
       </table>
